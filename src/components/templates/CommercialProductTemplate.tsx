@@ -9,6 +9,7 @@ import { ScreenshotGallery } from "@/components/ui/ScreenshotGallery";
 import { ProductIntroCard } from "@/components/ui/ProductIntroCard";
 import { WorkflowDiagram } from "@/components/diagrams/WorkflowDiagram";
 import { ArchitectureDiagram } from "@/components/diagrams/ArchitectureDiagram";
+import { OnePlusExperience } from "./OnePlusExperience";
 
 const showcaseGrid = "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3";
 
@@ -26,6 +27,8 @@ function featureRows(feature: ProductFeature): { label: string; value: string }[
 }
 
 export function CommercialProductTemplate({ experience }: { experience: CommercialProductExperience }) {
+  if (experience.slug === "oneplus") return <OnePlusExperience experience={experience} />;
+
   let sectionNumber = 0;
   const nextSection = () => String(++sectionNumber).padStart(2, "0");
 
