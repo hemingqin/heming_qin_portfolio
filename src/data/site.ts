@@ -9,7 +9,7 @@ export const site = {
   positioningStatement:
     "Building reliable software systems across backend services, engineering workflows, and user-facing applications.",
   location: "Victoria, BC",
-  email: "hemingqinn@gmail.com", // placeholder — replace with real email
+  email: "hemingqinqin@gmail.com", // placeholder — replace with real email
   resumePdfPath: "/resume/Heming-Qin-Resume.pdf", // placeholder — add the file to enable download
   social: {
     github: "https://github.com/hemingqin", // placeholder
