@@ -14,7 +14,7 @@ export function ProductIntroCard({ intro }: { intro: ProductIntro }) {
               alt={intro.image.alt}
               width={640}
               height={360}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           ) : (
             <div className="flex flex-col items-center gap-2 text-fg-subtle">
@@ -25,8 +25,8 @@ export function ProductIntroCard({ intro }: { intro: ProductIntro }) {
         </div>
       </figure>
       <div>
-        <h3 className="text-lg font-medium tracking-tight text-fg">{intro.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-fg-muted">{intro.description}</p>
+        <h3 className="text-2xl font-semibold tracking-tight text-fg">{intro.title}</h3>
+        <p className="mt-4 text-lg leading-[1.65] text-fg-muted">{intro.description}</p>
         {intro.officialLink && (
           <div className="mt-4">
             <ExternalLinkCard link={intro.officialLink} />

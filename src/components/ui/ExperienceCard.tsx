@@ -13,25 +13,25 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <Link
       href={`/experience/${experience.slug}`}
-      className="group flex flex-col justify-between rounded-lg border border-border bg-bg-subtle p-5 transition-colors hover:border-border-strong hover:bg-bg-inset"
+      className="group flex flex-col justify-between rounded-lg border border-border bg-bg p-6 transition-colors hover:border-border-strong hover:bg-bg-inset"
     >
       <div>
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="mono-label text-[11px] uppercase text-fg-subtle">
+            <p className="mono-label text-[13px] uppercase text-fg-subtle">
               {templateLabel[experience.template]}
             </p>
-            <h3 className="mt-1 text-base font-medium text-fg">{experience.organization}</h3>
-            <p className="text-sm text-fg-muted">{experience.role}</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-fg">{experience.organization}</h3>
+            <p className="mt-2 text-[17px] text-fg-muted">{experience.role}</p>
           </div>
           <ArrowUpRight
-            className="mt-1 h-4 w-4 shrink-0 text-fg-subtle transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+            className="mt-1 h-4 w-4 shrink-0 text-fg-subtle transition-colors group-hover:text-fg"
             aria-hidden
           />
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-fg-muted">{experience.shortDescription}</p>
+        <p className="mt-5 text-base leading-[1.65] text-fg-muted">{experience.shortDescription}</p>
       </div>
-      <TechTags items={experience.technologies} className="mt-4" />
+      <TechTags items={experience.technologies} className="mt-6" />
     </Link>
   );
 }

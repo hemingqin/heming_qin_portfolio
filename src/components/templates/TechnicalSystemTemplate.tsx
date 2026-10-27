@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import type { TechnicalSystemExperience } from "@/types/portfolio";
+import styles from "./CaseStudy.module.css";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HighlightCard } from "@/components/ui/HighlightCard";
@@ -19,7 +20,7 @@ export function TechnicalSystemTemplate({ experience }: { experience: TechnicalS
   );
 
   return (
-    <article>
+    <article className={styles.page}>
       <PageHero
         title={experience.organization}
         subtitle={experience.shortDescription}
@@ -28,11 +29,12 @@ export function TechnicalSystemTemplate({ experience }: { experience: TechnicalS
         meta={[
           { label: "Role", value: experience.role },
           { label: "Dates", value: experience.dates },
+          { label: "Location", value: experience.location },
         ]}
         actions={actions}
       />
 
-      <div className="mx-auto max-w-content space-y-16 px-4 py-14 sm:px-6">
+      <div className={`mx-auto max-w-content px-4 sm:px-6 ${styles.body}`}>
         <section aria-labelledby="overview-heading">
           <SectionHeading id="overview-heading" eyebrow="01" title="Overview" />
           <div className="mt-6 max-w-prose space-y-5">
@@ -59,11 +61,11 @@ export function TechnicalSystemTemplate({ experience }: { experience: TechnicalS
           </div>
         </section>
 
-        <section aria-labelledby="solutions-heading">
+        <section className={styles.contributions} aria-labelledby="solutions-heading">
           <SectionHeading
             id="solutions-heading"
             eyebrow="03"
-            title="Solutions"
+            title="My Engineering Contributions"
             description="Each solution below maps to one of the challenges above — technology appears only where it supports the solution."
           />
           <div className="mt-8 space-y-12">
@@ -136,7 +138,7 @@ export function TechnicalSystemTemplate({ experience }: { experience: TechnicalS
         </section>
 
         <section aria-labelledby="results-heading">
-          <SectionHeading id="results-heading" eyebrow="04" title="Results" />
+          <SectionHeading id="results-heading" eyebrow="04" title="Outcome & Impact" />
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {experience.metrics.map((m) => (
               <MetricCard key={m.label} metric={m} />

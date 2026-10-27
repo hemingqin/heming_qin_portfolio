@@ -22,13 +22,13 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group flex flex-col justify-between rounded-lg border border-border bg-bg-subtle p-5 transition-colors hover:border-border-strong hover:bg-bg-inset"
+      className="group flex flex-col justify-between rounded-lg border border-border bg-bg-subtle p-6 sm:p-8 transition-colors hover:border-border-strong hover:bg-bg-inset"
     >
       <div>
         <div className="flex items-start justify-between gap-3">
           <span
             className={cn(
-              "mono-label rounded px-1.5 py-0.5 text-[11px] uppercase",
+              "mono-label rounded px-1.5 py-0.5 text-[13px] uppercase",
               statusStyles[project.status]
             )}
           >
@@ -39,10 +39,10 @@ export function ProjectCard({ project }: { project: Project }) {
             aria-hidden
           />
         </div>
-        <h3 className="mt-3 text-base font-medium text-fg">{project.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-fg-muted">{project.description}</p>
+        <h2 className="mt-4 text-[26px] font-semibold tracking-tight text-fg">{project.title}</h2>
+        <p className="mt-4 text-[17px] leading-[1.65] text-fg-muted">{project.description}</p>
       </div>
-      <TechTags items={project.technologies} className="mt-4" />
+      <TechTags items={project.technologies} className="mt-6" />
     </Link>
   );
 }

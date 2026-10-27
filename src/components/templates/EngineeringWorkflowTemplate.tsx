@@ -1,4 +1,5 @@
 import type { EngineeringWorkflowExperience } from "@/types/portfolio";
+import styles from "./CaseStudy.module.css";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BulletList } from "@/components/ui/BulletList";
@@ -12,7 +13,7 @@ export function EngineeringWorkflowTemplate({ experience }: { experience: Engine
   const nextSection = () => String(++sectionNumber).padStart(2, "0");
 
   return (
-    <article>
+    <article className={styles.page}>
       <PageHero
         title={experience.organization}
         subtitle={experience.focusTagline}
@@ -25,7 +26,7 @@ export function EngineeringWorkflowTemplate({ experience }: { experience: Engine
         ]}
       />
 
-      <div className="mx-auto max-w-content space-y-16 px-4 py-14 sm:px-6">
+      <div className={`mx-auto max-w-content px-4 sm:px-6 ${styles.body}`}>
         <section aria-labelledby="background-heading">
           <SectionHeading id="background-heading" eyebrow={nextSection()} title="Background" />
           <div className="mt-6 max-w-prose space-y-5">
@@ -64,8 +65,8 @@ export function EngineeringWorkflowTemplate({ experience }: { experience: Engine
           </div>
         </section>
 
-        <section aria-labelledby="role-heading">
-          <SectionHeading id="role-heading" eyebrow={nextSection()} title="My Role" />
+        <section className={styles.contributions} aria-labelledby="role-heading">
+          <SectionHeading id="role-heading" eyebrow={nextSection()} title="My Engineering Contributions" />
           <div className="mt-6 max-w-prose space-y-5">
             <p className="text-sm leading-relaxed text-fg-muted">{experience.myRole.summary}</p>
             <BulletList items={experience.myRole.items} />
@@ -106,7 +107,7 @@ export function EngineeringWorkflowTemplate({ experience }: { experience: Engine
 
         <section aria-labelledby="platform-outcome-heading">
           <SectionHeading id="platform-outcome-heading" eyebrow={nextSection()} title="Platform Outcome" />
-          <div className="mt-6">
+          <div className={`mt-6 ${styles.outcome}`}>
             <BulletList items={experience.platformOutcome} />
           </div>
         </section>

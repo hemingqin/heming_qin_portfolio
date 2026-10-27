@@ -14,18 +14,18 @@ interface PageHeroProps {
 export function PageHero({ eyebrow, title, subtitle, description, technologies, meta, actions }: PageHeroProps) {
   return (
     <div className="border-b border-border">
-      <div className="mx-auto max-w-content px-4 py-12 sm:px-6 sm:py-16">
+      <div className="mx-auto max-w-content px-4 py-12 sm:px-6 sm:py-20">
         {eyebrow && <p className="mono-label text-xs uppercase text-fg-subtle">{eyebrow}</p>}
-        <h1 className="mt-2 text-3xl font-medium tracking-tight text-fg sm:text-4xl">{title}</h1>
-        {subtitle && <p className="mt-1.5 text-base text-fg-muted">{subtitle}</p>}
-        {description && <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-muted">{description}</p>}
+        <h1 className="mt-2 text-[40px] font-semibold leading-tight tracking-tight text-fg sm:text-5xl">{title}</h1>
+        {subtitle && <p className="mt-3 max-w-prose text-2xl tracking-tight text-fg sm:text-[28px]">{subtitle}</p>}
+        {description && <p className="mt-6 max-w-prose text-lg leading-[1.65] text-fg-muted">{description}</p>}
 
         {meta && meta.length > 0 && (
-          <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
+          <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-5 border-t border-border pt-7">
             {meta.map((m) => (
               <div key={m.label}>
-                <dt className="mono-label text-[11px] uppercase text-fg-subtle">{m.label}</dt>
-                <dd className="text-sm text-fg">{m.value}</dd>
+                <dt className="text-[13px] font-medium text-fg-muted">{m.label}</dt>
+                <dd className="mt-2 text-base text-fg">{m.value}</dd>
               </div>
             ))}
           </dl>

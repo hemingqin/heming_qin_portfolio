@@ -1,0 +1,37 @@
+/* Shared case-study presentation; the OnePlus reference does not use this scope. */
+.page {
+  --bg: 255 255 255;
+  --bg-subtle: 250 250 250;
+  --bg-inset: 245 245 245;
+  --fg: 17 17 17;
+  --fg-muted: 102 102 102;
+  --fg-subtle: 102 102 102;
+  --border: 234 234 234;
+  --border-strong: 205 205 205;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-size: 18px;
+  line-height: 1.65;
+}
+.body { padding-top: 56px; padding-bottom: 96px; }
+.body > section + section { margin-top: 88px; padding-top: 40px; border-top: 1px solid rgb(var(--border)); }
+.body h3 { font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -.025em; }
+.body p:global(.leading-relaxed), .body dd, .body ul:global(.list-disc) { font-size: 18px; line-height: 1.65; }
+.body dt { font-size: 20px; line-height: 1.4; font-family: inherit; text-transform: none; letter-spacing: -.015em; color: rgb(var(--fg)); font-weight: 600; }
+.contributions { padding: 32px; background: rgb(var(--bg-subtle)); border: 1px solid rgb(var(--border)); border-radius: 6px; }
+.body > .contributions { padding-top: 32px; }
+.contributions > div > ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; }
+.featureRows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+.featureRows > .contributionRow { grid-column: 1 / -1; padding: 32px; background: rgb(var(--bg-subtle)); border: 1px solid rgb(var(--border)); border-radius: 6px; }
+.contributionRow dt { font-size: 26px; }
+.featureRows > .outcomeRow { grid-column: 1 / -1; border-left: 2px solid rgb(var(--fg)); padding-left: 24px; }
+.outcome { border-left: 2px solid rgb(var(--fg)); padding-left: 24px; }
+.page img { object-fit: contain; }
+@media (max-width: 760px) {
+  .body { padding-top: 40px; padding-bottom: 64px; }
+  .body > section + section { margin-top: 56px; padding-top: 28px; }
+  .body h3 { font-size: 22px; }
+  .contributions, .featureRows > .contributionRow { padding: 24px; }
+  .body > .contributions { padding-top: 24px; }
+  .featureRows, .contributions > div > ul { grid-template-columns: minmax(0, 1fr); }
+}

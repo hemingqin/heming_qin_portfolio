@@ -43,7 +43,7 @@ const rows = [
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-content px-4 py-14 sm:px-6">
-      <SectionHeading eyebrow="Contact" title="Get in touch" description="The fastest way to reach me is by email." />
+      <SectionHeading as="h1" eyebrow="Contact" title="Get in touch" description="The fastest way to reach me is by email." />
 
       <div className="mt-10 divide-y divide-border border-y border-border">
         {rows.map((row) => {

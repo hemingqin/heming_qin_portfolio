@@ -16,7 +16,7 @@ export function TechTags({ items, className, size = "sm" }: TechTagsProps) {
           key={item}
           className={cn(
             "mono-label rounded border border-border bg-bg-subtle text-fg-muted",
-            size === "sm" ? "px-1.5 py-0.5 text-[11px]" : "px-2 py-1 text-xs"
+            size === "sm" ? "px-2 py-0.5 text-[13px]" : "px-2.5 py-1 text-sm"
           )}
         >
           {item}

@@ -1,4 +1,5 @@
 import type { CommercialProductExperience, ProductFeature } from "@/types/portfolio";
+import styles from "./CaseStudy.module.css";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProprietaryNotice } from "@/components/ui/ProprietaryNotice";
@@ -17,12 +18,12 @@ function featureRows(feature: ProductFeature): { label: string; value: string }[
   return [
     feature.background && { label: "Background", value: feature.background },
     feature.requirement && { label: feature.requirementLabel ?? "Requirement", value: feature.requirement },
-    feature.contribution && { label: "My contribution", value: feature.contribution },
+    feature.contribution && { label: "My Engineering Contributions", value: feature.contribution },
     feature.technicalApproach && {
-      label: feature.technicalApproachLabel ?? "Technical approach",
+      label: "Technical Implementation",
       value: feature.technicalApproach,
     },
-    feature.outcome && { label: "Outcome", value: feature.outcome },
+    feature.outcome && { label: "Outcome & Impact", value: feature.outcome },
   ].filter((row): row is { label: string; value: string } => Boolean(row));
 }
 
@@ -33,7 +34,7 @@ export function CommercialProductTemplate({ experience }: { experience: Commerci
   const nextSection = () => String(++sectionNumber).padStart(2, "0");
 
   return (
-    <article>
+    <article className={styles.page}>
       <PageHero
         title={experience.organization}
         subtitle={experience.platformTagline}
@@ -42,11 +43,12 @@ export function CommercialProductTemplate({ experience }: { experience: Commerci
         meta={[
           { label: "Role", value: experience.role },
           { label: "Dates", value: experience.dates },
+          { label: "Location", value: experience.location },
         ]}
         actions={<ProprietaryNotice text={experience.proprietaryNotice} />}
       />
 
-      <div className="mx-auto max-w-content space-y-16 px-4 py-14 sm:px-6">
+      <div className={`mx-auto max-w-content px-4 sm:px-6 ${styles.body}`}>
         <section aria-labelledby="background-heading">
           <SectionHeading id="background-heading" eyebrow={nextSection()} title="Background" />
           <div className="mt-6 space-y-8">
@@ -68,9 +70,9 @@ export function CommercialProductTemplate({ experience }: { experience: Commerci
             <div className="mt-6 space-y-6">
               {feature.productIntro && <ProductIntroCard intro={feature.productIntro} />}
 
-              <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <dl className={styles.featureRows}>
                 {featureRows(feature).map((row) => (
-                  <div key={row.label}>
+                  <div key={row.label} className={row.label === "My Engineering Contributions" ? styles.contributionRow : row.label === "Outcome & Impact" ? styles.outcomeRow : undefined}>
                     <dt className="mono-label text-[11px] uppercase text-fg-subtle">{row.label}</dt>
                     <dd className="mt-1 text-sm leading-relaxed text-fg-muted">{row.value}</dd>
                   </div>
@@ -100,9 +102,9 @@ export function CommercialProductTemplate({ experience }: { experience: Commerci
         ))}
 
         {experience.responsibilities && (
-          <section aria-labelledby="responsibilities-heading">
+          <section className={styles.contributions} aria-labelledby="responsibilities-heading">
             <SectionHeading id="responsibilities-heading" eyebrow={nextSection()} title={experience.responsibilities.title} />
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
               {experience.responsibilities.items.map((item) => (
                 <HighlightCard key={item.title} item={item} />
               ))}

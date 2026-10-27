@@ -25,7 +25,7 @@ export default function ResumePage() {
 
   return (
     <div className="mx-auto max-w-content px-4 py-14 sm:px-6">
-      <SectionHeading
+      <SectionHeading as="h1"
         eyebrow="Resume"
         title="Resume"
         description="A condensed summary of my professional experience. For more detail on any individual role, visit the Experience section."
